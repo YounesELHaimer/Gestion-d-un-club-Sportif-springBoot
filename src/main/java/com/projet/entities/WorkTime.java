@@ -26,5 +26,45 @@ public class WorkTime {
 	
 	@OneToMany(mappedBy = "workTime")
 	private Set<Client> clients;
+
+	public Long getIdWorkTime() {
+		return idWorkTime;
+	}
+
+	public void setIdWorkTime(Long idWorkTime) {
+		this.idWorkTime = idWorkTime;
+	}
+
+	public String getDayOne() {
+		return dayOne;
+	}
+
+	public void setDayOne(String dayOne) {
+		this.dayOne = dayOne;
+	}
+
+	public String getDayTwo() {
+		return dayTwo;
+	}
+
+	public void setDayTwo(String dayTwo) {
+		this.dayTwo = dayTwo;
+	}
+
+	public String getDayThree() {
+		return dayThree;
+	}
+
+	public void setDayThree(String dayThree) {
+		this.dayThree = dayThree;
+	}
+
+	public Set<Client> getClients() {
+		return clients;
+	}
+
+	public void setClients(Set<Client> clients) {
+		this.clients = clients;
+	}
 	
 }

@@ -2,14 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Admin Management System</title>
+<title>Student Management System</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
-	
-<link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
-<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+   
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+   <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+    
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!--<title>Dashboard Sidebar Menu</title>--> 
 
 </head>
 <body>
@@ -18,7 +26,7 @@
   
    <nav class="sidebar">
         <header>
-           <div class="image-text">
+            <div class="image-text">
                 <span class="image">
                     <img src="logo.jpg" alt="">
                 </span>
@@ -49,8 +57,8 @@
                     </li>
 
                     <li class="nav-link">
-                        <a th:href="@{/Client}" >
-                            <i class='bx bx-bar-chart-alt-2 icon' ></i>
+                        <a th:href="@{/Client}">
+                           <i class='bx bx-male icon' ></i>
                             <span class="text nav-text">Client</span>
                         </a>
                     </li>
@@ -118,102 +126,128 @@
   </button>
     
         <div class = "container">
-        	
 		<div class = "row">
-	
-	
 			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-			<br>
-	
-				<h1 class = "text-center"> Ajout Personnel </h1>
+				<h1 class = "text-center"> Ajout Client </h1>
 				<div class = "card-body">
-					<form th:action="@{/Personnel/add}" th:object = "${Personnel}" method="POST">
+					<form th:action="@{/Client/add}" th:object = "${Client}" method="POST">
 						<div class ="form-group">
-							<label> Personnel First Name </label>
+							<label> Client First Name </label>
 							<input
 							type = "text"
 							name = "firstName"
 							th:field = "*{firstName}"
 							class = "form-control"
-							placeholder="Enter Personnel First Name" 
+							placeholder="Enter Client First Name" 
 							/>
 						</div>
 						
 						<div class ="form-group">
-							<label> Personnel Last Name </label>
+							<label> Client Last Name </label>
 							<input
 							type = "text"
 							name = "lastName"
 							th:field = "*{lastName}"
 							class = "form-control"
-							placeholder="Enter Personnel Last Name" 
+							placeholder="Enter Client Last Name" 
 							/>
 						</div>
 						
 						<div class ="form-group">
-							<label> Personnel Date de Naissance </label>
+							<label> Client Username </label>
+							<input
+							type = "text"
+							name = "username"
+							th:field = "*{username}"
+							class = "form-control"
+							placeholder="Enter Client username " 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Client Date de Naissance </label>
 							<input
 							type = "date"
 							name = "Date de Naissance"
 							th:field = "*{date}"
 							class = "form-control"
-							placeholder="Enter Personnel Date de Naissance" 
+							placeholder="Enter Client Date de Naissance" 
 							/>
 						</div>
 						
 						<div class ="form-group">
-							<label> Personnel Adresse </label>
+							<label> Client Adresse </label>
 							<input
 							type = "text"
 							name = "Adresse"
 							th:field = "*{adresse}"
 							class = "form-control"
-							placeholder="Enter Personnel Adresse" 
+							placeholder="Enter Client Adresse" 
 							/>
 						</div>
 						
 						<div class ="form-group">
-							<label> Personnel Numero </label>
+							<label> Client Numero </label>
 							<input
 							type = "text"
 							name = "Numero"
 							th:field = "*{phone}"
 							class = "form-control"
-							placeholder="Enter Personnel Numero tel" 
+							placeholder="Enter Client Numero tel" 
 							/>
 						</div>
 						
 						<div class ="form-group">
-							<label> Personnel Email </label>
+							<label> Client Email </label>
 							<input
 							type = "text"
 							name = "email"
 							th:field = "*{email}"
 							class = "form-control"
-							placeholder="Enter Personnel Email" 
+							placeholder="Enter Client Email" 
 							/>
 						</div>
 						
 						<div class ="form-group">
-							<label> Personnel Salary </label>
+							<label> Client Date Payment </label>
 							<input
-							type = "text"
-							name = "Salary"
-							th:field = "*{salary}"
+							type = "date"
+							name = "payment"
+							th:field = "*{datePayment}"
 							class = "form-control"
-							placeholder="Enter Personnel Salary" 
+							placeholder="Enter Client datePayment" 
 							/>
 						</div>
+						
 						<div class ="form-group">
-							<label> Personnel Job </label>
+							<label> Client payment done </label>
 							<br>
-						<select th:field="*{job}"  style="border: 1px solid gray;">
-						    <option th:each ="lst:${jobs}" th:value="${lst.idJob}" th:text="${lst.title}"></option>
+							<input type="radio" id="true" name="hadPayed" value="true" th:field = "*{hasPaid}">
+							  <label for="true">Yes</label><br>
+							  <input type="radio" id="false" name="hadPayed" value="false" th:field = "*{hasPaid}">
+							  <label for="false">No</label><br>
+							
+						</div>
+						
+							<div class ="form-group">
+							<label> Personnel Packs </label>
+							<br>
+						<select th:field="*{pack}">
+						    <option th:each ="lst:${packs}" th:value="${lst.idPack}" th:text="${lst.name}"></option>
 						    
 						</select>
 						</div>
-					
+						<br>
 						
+							<div class ="form-group">
+							<label> Personnel WorkTime </label>
+							<br>
+						<select th:field="*{workTime}">
+						    <option th:each ="lst:${worktimes}" th:value="${lst.idWorkTime}" th:text="${lst.idWorkTime}"></option>
+						    
+						</select>
+						</div>
+						<br> 
 						
 						<div class = "box-footer">
 							<button type="submit" class = "btn btn-primary">

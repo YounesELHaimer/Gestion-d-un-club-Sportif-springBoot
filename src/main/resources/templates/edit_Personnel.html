@@ -7,26 +7,123 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
+   
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+   <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+    
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!--<title>Dashboard Sidebar Menu</title>--> 
+
 </head>
 <body>
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <!-- Brand -->
-  <a class="navbar-brand" href="#">Personnel Management System</a>
+	
+	
+	 <nav class="sidebar">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="logo.jpg" alt="">
+                </span>
 
+                <div class="text logo-text">
+                    <span class="name">Admin</span>
+                    <span class="profession">Admin Mangement</span>
+                </div>
+            </div>
+
+          
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+              <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="Search...">
+                </li>
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a th:href="@{/Personnel}">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Personnel</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a th:href="@{/Client}">
+                            <i class='bx bx-bar-chart-alt-2 icon' ></i>
+                            <span class="text nav-text">Client</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-bell icon'></i>
+                            <span class="text nav-text">Job</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-pie-chart-alt icon' ></i>
+                            <span class="text nav-text">Pack</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-heart icon' ></i>
+                            <span class="text nav-text">Plan</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-wallet icon' ></i>
+                            <span class="text nav-text">Worktime</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a th:href="@{/login}">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+                
+            </div>
+        </div>
+
+    </nav>
+<section class="home">
   <!-- Toggler/collapsibe Button -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <!-- Navbar links -->
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" th:href="@{/Personnel}">Personnel Management</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+ 
 <br>
 <br>
 	<div class = "container">
@@ -112,6 +209,15 @@
 							/>
 						</div>
 						
+						<div class ="form-group">
+							<label> Personnel Job </label>
+							<br>
+						<select th:field="*{job}">
+						    <option th:each ="lst:${jobs}" th:value="${lst.idJob}" th:text="${lst.title}"></option>
+						    
+						</select>
+						</div>
+						<br>
 						
 						
 						<div class = "box-footer">
@@ -125,5 +231,7 @@
 			</div>
 		</div>
 	</div>
+	
+	 </section>
 </body>
 </html>
