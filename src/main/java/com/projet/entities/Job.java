@@ -23,5 +23,42 @@ public class Job {
 	
 	@OneToMany (mappedBy = "job")
 	private Set<Personnel> personnels;
-	
+
+	public Long getIdJob() {
+		return idJob;
+	}
+
+	public void setIdJob(Long idJob) {
+		this.idJob = idJob;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Set<Personnel> getPersonnels() {
+		return personnels;
+	}
+
+	public void setPersonnels(Set<Personnel> personnels) {
+		this.personnels = personnels;
+	}
+
+	public Job() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Job(Long idJob, String title, Set<Personnel> personnels) {
+		super();
+		this.idJob = idJob;
+		this.title = title;
+		this.personnels = personnels;
+	}
+
+
 }

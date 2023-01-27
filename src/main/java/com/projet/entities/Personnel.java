@@ -24,7 +24,7 @@ public class Personnel {
 	@GeneratedValue (strategy = GenerationType. IDENTITY)
 	private Long idPersonnel;
 	
-	@Column (name="firstName")
+	
 	private String firstName;
 	private String lastName;
 	private Date date;
@@ -58,6 +58,94 @@ public class Personnel {
 	public Personnel() {
 		super();
 	}
+
+	public Long getIdPersonnel() {
+		return idPersonnel;
+	}
+
+	public void setIdPersonnel(Long idPersonnel) {
+		this.idPersonnel = idPersonnel;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public String getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
+	}
+
+	public Long getPhone() {
+		return phone;
+	}
+
+	public void setPhone(Long phone) {
+		this.phone = phone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Integer getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Integer salary) {
+		this.salary = salary;
+	}
+
+	public Job getJob() {
+		return job;
+	}
+
+	public void setJob(Job job) {
+		this.job = job;
+	}
+
+	public Set<Admin> getAdmins() {
+		return admins;
+	}
+
+	public void setAdmins(Set<Admin> admins) {
+		this.admins = admins;
+	}
+
+	@Override
+	public String toString() {
+		return "Personnel [idPersonnel=" + idPersonnel + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", date=" + date + ", adresse=" + adresse + ", phone=" + phone + ", email=" + email + ", salary="
+				+ salary + ", job=" + job + ", admins=" + admins + "]";
+	}
+	
 	
 	
 }
