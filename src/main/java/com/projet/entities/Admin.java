@@ -28,6 +28,52 @@ public class Admin {
 	@JoinColumn (name="idPersonnel")
 	private Personnel personnel;
 
+	public Admin(Long idAdmin, String username, String password, Personnel personnel) {
+		super();
+		this.idAdmin = idAdmin;
+		this.username = username;
+		this.password = password;
+		this.personnel = personnel;
+	}
+
+	public Admin() {
+		super();
+	}
+
+	public Long getIdAdmin() {
+		return idAdmin;
+	}
+
+	public void setIdAdmin(Long idAdmin) {
+		this.idAdmin = idAdmin;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Personnel getPersonnel() {
+		return personnel;
+	}
+
+	public void setPersonnel(Personnel personnel) {
+		this.personnel = personnel;
+	}
+	
+	
+
 	
 	
 }
