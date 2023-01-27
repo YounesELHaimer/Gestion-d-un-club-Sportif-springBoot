@@ -20,8 +20,7 @@ public class Client {
 	@GeneratedValue (strategy = GenerationType. IDENTITY)
 	private Long idClient;
 	
-	@Column (name="username")
-	private String username;
+	@Column (name="firstName")
 	private String firstName;
 	private String lastName;
 	private Date date;
