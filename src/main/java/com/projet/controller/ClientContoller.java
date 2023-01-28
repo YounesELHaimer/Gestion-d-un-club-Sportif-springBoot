@@ -57,6 +57,10 @@ public class ClientContoller {
 		m.addAttribute("Client",c);
 		m.addAttribute("NumClient",numClient);
 		m.addAttribute("NumCoach",numCoach);
+		List<Integer> pack1 = packdao.findPriceStandard();
+		m.addAttribute("pack1", pack1);	
+		List<Long> pack2 = packdao.findPricePremium();
+		m.addAttribute("pack2", pack2);		
 		return "index";
 	} 
 	
@@ -72,13 +76,20 @@ public class ClientContoller {
 								Long phone,
 								String email*/) {
 		ss.saveClient(Client);
-		return "redirect:/index";
+		return "redirect:/index/registration/success";
 	}
+
+	@RequestMapping("/index/registration/success")
+	public String success(Model m)
+	{	
+		return "success";
+	} 
 	
-	/*@PostMapping("/index/pack")
-	public void getPack(Model m,@ModelAttribute("option") String name) {
-		Long id = plandao.findIdByName(name);
-		List<Pack> options = packdao.findPackByIdPlan(id);
-		m.addAttribute("packs", options);
-	}*/
+	@RequestMapping("/close")
+	public String close(Model m ) {
+
+		return "redirect:/index";
+		
+		
+	} 
 }

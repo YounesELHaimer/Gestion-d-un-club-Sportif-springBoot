@@ -233,6 +233,9 @@ public class Controller {
 			cs.deleteClientById(id);
 			return "redirect:/Client";
 	}
+	
+		
+		
 
 	 
 	 

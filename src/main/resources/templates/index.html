@@ -93,23 +93,23 @@
     <div class="content">
         <span>about us</span>
         <h3 class="title">Every day is a chance to become better</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione quia accusamus dicta inventore nobis obcaecati vero odio, id dolorum. Consequatur ex, aperiam deserunt nostrum perferendis illum unde ipsa? Consequatur, distinctio?</p>
+        <p>Are you ready to take control of your health and fitness? Look no further than our gym! With state-of-the-art equipment, expert personal trainers, and a supportive community, we have everything you need to reach your fitness goals. Whether you're just starting out or looking to take your training to the next level, we've got you covered. Don't let another day pass by without taking steps towards a healthier and happier you. <a href="#inscrire" class="contact" style="color: #e74c3c">Join us</a> today and let's achieve greatness together!"</p>
         <div class="box-container">
             <div class="box">
                 <h3><i class="fas fa-check"></i>body and mind</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, enim.</p>
+                <p>improve mental well-being and mental stress. take the first step towards a healthier, happier you.</p>
             </div>
             <div class="box">
                 <h3><i class="fas fa-check"></i>healthy life</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, enim.</p>
+                <p>Living a healthy lifestyle is essential for both your physical and mental well-being.</p>
             </div>
             <div class="box">
                 <h3><i class="fas fa-check"></i>strategies</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, enim.</p>
+                <p>sticking to a fitness plan can be challenging, but with the right strategies, it can be done successfully</p>
             </div>
             <div class="box">
                 <h3><i class="fas fa-check"></i>workout</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, enim.</p>
+                <p>find the perfect workout to match your fitness level and goals.</p>
             </div>
         </div>
         
@@ -231,41 +231,37 @@
     <div class="information">
         <span>pricing plan</span>
         <h3>affordable pricing plan for your</h3>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam dolore excepturi ea suscipit fugiat cum quae, rerum optio mollitia! Tempora?</p>
-        <p> <i class="fas fa-check"></i> cardio exercise </p>
-        <p> <i class="fas fa-check"></i> weight lifting </p>
-        <p> <i class="fas fa-check"></i> diet plans </p>
-        <p> <i class="fas fa-check"></i> overall results </p>
+        <p>With our comprehensive and personalized fitness plan, you will have the guidance and support you need to achieve your goals. Our expert personal trainers will work with you to create a plan tailored to your specific needs and fitness level. And with a variety of classes and state-of-the-art equipment, you'll never run out of options to keep your workouts interesting and challenging. Don't wait any longer to take the first step towards a healthier and happier you. Join us today and let's make it happen together with our unique fitness plan."</p>
     </div>
 
     <div class="plan basic">
         <h3>basic plan</h3>
-        <div class="price">300<span>MAD</span><span>/mo</span></div>
-        <div class="price">800<span>MAD</span><span>/3Mo</span></div>
-        <div class="price">1500<span>MAD</span><span>/6Mo</span></div>
-        <div class="price">2800<span>MAD</span><span>/year</span></div>
+        <div class="price"> [[${pack1[0]}]]<span>MAD</span><span>/mo</span></div>
+        <div class="price"> [[${pack1[1]}]]<span>MAD</span><span>/3Mo</span></div>
+        <div class="price"> [[${pack1[2]}]]<span>MAD</span><span>/6Mo</span></div>
+        <div class="price"> [[${pack1[3]}]]<span>MAD</span><span>/year</span></div>
        <div class="list">
-        <p> <i class="fas fa-check"></i> personal training </p>
         <p> <i class="fas fa-check"></i> cardio exercise </p>
         <p> <i class="fas fa-check"></i> weight lifting </p>
-        <p> <i class="fas fa-check"></i> diet plans </p>
         <p> <i class="fas fa-check"></i> overall results </p>
+        <p> <i class="fa fa-times"></i> diet plans </p>
+        <p> <i class="fa fa-times"></i> personal training </p>
        </div>
        <a href="#inscrire" class="btn">get started</a>
     </div>
 
     <div class="plan">
         <h3>premium plan</h3>
-        <div class="price">500<span>MAD</span><span>/mo</span></div>
-        <div class="price">1300<span>MAD</span><span>/3Mo</span></div>
-        <div class="price">2500<span>MAD</span><span>/6Mo</span></div>
-        <div class="price">4500<span>MAD</span><span>/year</span></div>
+        <div class="price"> [[${pack2[4]}]]<span>MAD</span><span>/mo</span></div>
+        <div class="price"> [[${pack2[5]}]]<span>MAD</span><span>/3Mo</span></div>
+        <div class="price"> [[${pack2[6]}]]<span>MAD</span><span>/6Mo</span></div>
+        <div class="price"> [[${pack2[7]}]]<span>MAD</span><span>/year</span></div>
        <div class="list">
-        <p> <i class="fas fa-check"></i> personal training </p>
         <p> <i class="fas fa-check"></i> cardio exercise </p>
         <p> <i class="fas fa-check"></i> weight lifting </p>
-        <p> <i class="fas fa-check"></i> diet plans </p>
         <p> <i class="fas fa-check"></i> overall results </p>
+        <p> <i class="fas fa-check"></i> diet plans </p>
+        <p> <i class="fas fa-check"></i> personal training </p>
        </div>
        <a href="#inscrire" class="btn">get started</a>
     </div>
@@ -317,13 +313,13 @@
 	            </div>
 	            <div class="inputBox">
 	                <span>email</span>
-	                <input type="text" class="card-holder-input" placeholder="Enter your email"
+	                <input type="email" class="card-holder-input" placeholder="Enter your email"
 	                th:field = "*{email}">
 	            </div>
 	            <div class="inputBox">
 	                <span>Phone</span>
-	                <input type="text" maxlength="14" class="card-holder-input" placeholder="Enter your Phone"
-	                th:field = "*{phone}">
+	                <input type="tel" maxlength="14" class="card-holder-input" placeholder="Enter your Phone"
+	                th:field = "*{phone}"  pattern="{0}[6-7][0-9]">
 	            </div>
 	            
 	               

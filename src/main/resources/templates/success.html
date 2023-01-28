@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- custom css file link  -->
+    <link rel="stylesheet" th:href="@{/css/success.css}">
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="box">
+            <div class="header">
+               <i class="fa fa-check-circle"></i>
+                <h1>Registration successful</h1>
+            </div>
+           
+            <div class="texte">
+              Congratulations on taking the first step towards a healthier and happier you by registering with our gym!<br>
+              <br>
+             Do not hesitate to join us in our gym to pay the subscription.<br> <br>
+            We are waiting for you!
+            </div>
+
+            <a th:href = "@{/close}"><button class="button-32" role="button" >Close </button></a>
+        </div>
+    </div>    
+
+</body>
+</html>
+
