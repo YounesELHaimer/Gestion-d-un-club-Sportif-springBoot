@@ -16,15 +16,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.projet.entities.Admin;
 import com.projet.entities.Client;
 import com.projet.entities.Job;
+import com.projet.entities.Pack;
 import com.projet.entities.Personnel;
+import com.projet.entities.Plan;
+import com.projet.entities.WorkTime;
 import com.projet.repo.ClientRepository;
 import com.projet.repo.PersonnelRepository;
+import com.projet.repo.PlanRepository;
 import com.projet.repo.adminRepository;
 import com.projet.repo.jobRepository;
 import com.projet.repo.packRepository;
 import com.projet.repo.worktimeRepository;
 import com.projet.service.ClientService;
+import com.projet.service.JobService;
+import com.projet.service.PackService;
 import com.projet.service.PersonnelService;
+import com.projet.service.PlanService;
+import com.projet.service.WorktimeService;
 
 
 @org.springframework.stereotype.Controller
@@ -234,6 +242,261 @@ public class Controller {
 			return "redirect:/Client";
 	}
 
-	 
-	 
+		//####################################### partie Job #######################################
+		
+		@Autowired
+		private JobService js;
+
+	
+
+		@GetMapping("/Job")
+		public String listJob(Model m ) {
+		    m.addAttribute("badre",js.getAllPers());
+		    return "Job";
+		}
+
+		@GetMapping("/Job/new")
+
+		public String createJobForm(Model m) {
+		
+		    Job e = new Job();
+		    m.addAttribute("Job",e);
+		    return "create_Job";
+		    
+		    
+		} 
+
+		 
+
+		@PostMapping("/Job/add")
+		public String saveJob(@ModelAttribute("Job") Job Job) {
+		    js.savePers(Job);
+		    return "redirect:/Job";
+		}
+		@GetMapping("/Job/edit/{id}")
+
+		public String updateJobForm(@PathVariable Long id,Model m) {
+		    Job e =  js.getJobById(id);
+		    m.addAttribute("Job",e);
+		    return "edit_Job";
+		    
+		     
+		} 
+		@PostMapping("/Job/{id}")
+		public String updateJob(@PathVariable Long id,@ModelAttribute("Job") Job Job) {
+		    // get student from db by id
+		    
+		    Job s  = js.getJobById(id);
+		    s.setIdJob(id);
+		    s.setTitle(Job.getTitle());
+		   
+		    
+		     // save updated student object
+		    js.updateJob(s); 
+		    return "redirect:/Job";
+		     
+		}
+
+		@GetMapping("/Job/{id}")
+		public String deleteJob(@PathVariable Long id) {
+		    js.deleteJobById(id);
+		    return "redirect:/Job";
+		}
+
+
+		//####################################### partie Pack #######################################
+			
+		@Autowired
+		private PackService ps;
+
+		@Autowired
+		private PlanRepository PR;
+
+		
+
+
+		@GetMapping("/Pack")
+		public String listPack(Model m ) {
+		    m.addAttribute("badre",ps.getAllPers());
+		    return "Pack";
+		}
+
+		@GetMapping("/Pack/new")
+
+		public String createPackForm(Model m) {
+		    m.addAttribute("plans",PR.findAll());
+		   
+		    Pack e = new Pack();
+		    m.addAttribute("Pack",e);
+		    return "create_Pack";
+		    
+		    
+		} 
+
+		 
+
+		@PostMapping("/Pack/add")
+		public String savePack(@ModelAttribute("Pack") Pack Pack) {
+		    ps.savePers(Pack);
+		    return "redirect:/Pack";
+		}
+		@GetMapping("/Pack/edit/{id}")
+
+		public String updatePackForm(@PathVariable Long id,Model m) {
+			 m.addAttribute("plans",PR.findAll());
+		    Pack e =  ps.getPackById(id);
+		    m.addAttribute("Pack",e);
+		    return "edit_Pack";
+		    
+		     
+		} 
+		@PostMapping("/Pack/{id}")
+		public String updatePack(@PathVariable Long id,@ModelAttribute("Pack") Pack Pack) {
+		    // get student from db by id
+		    
+		    Pack s  = ps.getPackById(id);
+		    s.setIdPack(id);
+		    s.setName(Pack.getName());
+		    s.setDuree(Pack.getDuree());
+		    s.setPrice(Pack.getPrice());
+		    s.setPlan(Pack.getPlan());
+		   
+		    
+		     // save updated student object
+		    ps.updatePack(s); 
+		    return "redirect:/Pack";
+		     
+		}
+
+		@GetMapping("/Pack/{id}")
+		public String deletePack(@PathVariable Long id) {
+		    ps.deletePackById(id);
+		    return "redirect:/Pack";
+		}
+
+
+		//####################################### partie Plan #######################################
+		
+				@Autowired
+				private PlanService Ps;
+
+			
+
+				@GetMapping("/Plan")
+				public String listPlan(Model m ) {
+				    m.addAttribute("badre",Ps.getAllPers());
+				    return "Plan";
+				}
+
+				@GetMapping("/Plan/new")
+
+				public String createPlanForm(Model m) {
+				
+				    Plan e = new Plan();
+				    m.addAttribute("Plan",e);
+				    return "create_Plan";
+				    
+				    
+				} 
+
+				 
+
+				@PostMapping("/Plan/add")
+				public String savePlan(@ModelAttribute("Plan") Plan Plan) {
+				    Ps.savePers(Plan);
+				    return "redirect:/Plan";
+				}
+				@GetMapping("/Plan/edit/{id}")
+
+				public String updatePlanForm(@PathVariable Long id,Model m) {
+				    Plan e =  Ps.getPlanById(id);
+				    m.addAttribute("Plan",e);
+				    return "edit_Plan";
+				    
+				     
+				} 
+				@PostMapping("/Plan/{id}")
+				public String updatePlan(@PathVariable Long id,@ModelAttribute("Plan") Plan Plan) {
+				    // get student from db by id
+				    
+				    Plan s  = Ps.getPlanById(id);
+				    s.setIdPlan(id);
+				    s.setName(Plan.getName());
+				   
+				    
+				     // save updated student object
+				    Ps.updatePlan(s); 
+				    return "redirect:/Plan";
+				     
+				}
+
+				@GetMapping("/Plan/{id}")
+				public String deletePlan(@PathVariable Long id) {
+				    Ps.deletePlanById(id);
+				    return "redirect:/Plan";
+				}
+
+		//####################################### partie Worktime #######################################
+				
+				@Autowired
+				private WorktimeService ws;
+
+			
+
+				@GetMapping("/Worktime")
+				public String listWorktime(Model m ) {
+				    m.addAttribute("badre",ws.getAllPers());
+				    return "Worktime";
+				}
+
+				@GetMapping("/Worktime/new")
+
+				public String createWorktimeForm(Model m) {
+				
+				    WorkTime e = new WorkTime();
+				    m.addAttribute("Worktime",e);
+				    return "create_Worktime";
+				    
+				    
+				} 
+
+				 
+
+				@PostMapping("/Worktime/add")
+				public String saveWorktime(@ModelAttribute("Worktime") WorkTime Worktime) {
+				    ws.savePers(Worktime);
+				    return "redirect:/Worktime";
+				}
+				@GetMapping("/Worktime/edit/{id}")
+
+				public String updateWorktimeForm(@PathVariable Long id,Model m) {
+				    WorkTime e =  ws.getWorktimeById(id);
+				    m.addAttribute("Worktime",e);
+				    return "edit_Worktime";
+				    
+				     
+				} 
+				@PostMapping("/Worktime/{id}")
+				public String updateWorktime(@PathVariable Long id,@ModelAttribute("Worktime") WorkTime Worktime) {
+				    // get student from db by id
+				    
+				    WorkTime s  = ws.getWorktimeById(id);
+				    s.setIdWorkTime(id);
+				    s.setDayOne(Worktime.getDayOne());
+				    s.setDayTwo(Worktime.getDayTwo());
+				    s.setDayThree(Worktime.getDayThree());
+				   
+				    
+				     // save updated student object
+				    ws.updateWorktime(s); 
+				    return "redirect:/Worktime";
+				     
+				}
+
+				@GetMapping("/Worktime/{id}")
+				public String deleteWorktime(@PathVariable Long id) {
+				    ws.deleteWorktimeById(id);
+				    return "redirect:/Worktime";
+				}
+
 }
