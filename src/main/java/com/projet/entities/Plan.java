@@ -21,10 +21,10 @@ public class Plan {
 	
 	@Column (name="name")
 	private String name;
-	private Integer price;
 	
 	
 	@OneToMany (mappedBy = "plan")
 	private Set<Pack> packs;
+
 
 }
