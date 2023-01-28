@@ -106,48 +106,41 @@
         <br>
 		<div class = "row">
 		
-			<h1 >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp List Personnels </h1>
+			<h1 >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp List Worktimes </h1>
 			
 		 
 		</div>
 		<br>
 		<div class = "row">
 			<div class = "col-lg-3">
-				<a th:href = "@{/Personnel/new}" class = "btn btn-primary btn-sm mb-3"> Add Personnel</a>
+				<a th:href = "@{/Worktime/new}" class = "btn btn-primary btn-sm mb-3"> Add Worktime</a>
 			</div>
 		</div>
 		<table class = "table table-striped table-bordered">
 			<thead class = "table-dark">
 				<tr>
-					<th> Personnel First Name</th>
-					<th> Personnel Last Name</th>
-					<th> Personnel Date de Naissance</th>
-					<th> Personnel Adresse</th>
-					<th> Personnel Numero tel</th>
-					<th> Personnel Email </th>
-					<th> Personnel Salary</th>
-					<th> Personnel Job</th>
+					<th> Worktime First Day</th>
+					<th> Worktime Second Day</th>
+					<th> Worktime Third Day</th>
+					
 					
 					<th> Actions </th>
 				</tr>
 			</thead>
 			
 			<tbody>
-			  <tr th:each ="lst:${badr}">
-				<TD th:text="${lst.firstName}"> </TD>
-				<TD th:text= "${lst.LastName}" > </TD>
-				<TD th:text= "${lst.date}" > </TD>
-				<TD th:text= "${lst.adresse}" > </TD>
-				<TD th:text= "${lst.phone}" > </TD>
-				<TD th:text="${lst.email}"> </TD>
-				<TD th:text="${lst.salary}"> </TD>
-				<TD th:text="${lst.job.title}"> </TD>
+			
+			  	 <tr th:each ="lst:${badre}">
+				<TD th:text="${lst.dayOne}"> </TD>
+				<TD th:text= "${lst.dayTwo}" > </TD>
+				<TD th:text= "${lst.dayThree}" > </TD>
+				
 				<td>
-						<a th:href = "@{/Personnel/edit/{id}(id=${lst.idPersonnel})}"
+						<a th:href = "@{/Worktime/edit/{id}(id=${lst.idWorkTime})}"
 						 class = "btn btn-primary">Update</a>
 						<br>
 						<br>
-						<a th:href = "@{/Personnel/{id}(id=${lst.idPersonnel})}"
+						<a th:href = "@{/Worktime/{id}(id=${lst.idWorkTime})}"
 						 class = "btn btn-danger">Delete</a>
 						 
 				</td>

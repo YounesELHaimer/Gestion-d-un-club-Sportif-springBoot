@@ -10,15 +10,14 @@
 	
 <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 <body>
 
-
-  
-   <nav class="sidebar">
+	 <nav class="sidebar">
         <header>
-           <div class="image-text">
+            <div class="image-text">
                 <span class="image">
                     <img src="logo.jpg" alt="">
                 </span>
@@ -43,42 +42,42 @@
                 <ul class="menu-links">
                     <li class="nav-link">
                         <a th:href="@{/Personnel}">
-                            <i class='bx bx-home-alt icon' ></i>
+                            <i class='bx bx-hard-hat icon' style='color:rgba(0,0,0,0.6)'  ></i>
                             <span class="text nav-text">Personnel</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a th:href="@{/Client}" >
-                            <i class='bx bx-bar-chart-alt-2 icon' ></i>
+                        <a th:href="@{/Client}">
+                          <i class='bx bx-male icon' ></i>
                             <span class="text nav-text">Client</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-bell icon'></i>
+                        <a th:href="@{/Job}">
+                           <i class='bx bx-briefcase icon'></i>
                             <span class="text nav-text">Job</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-pie-chart-alt icon' ></i>
+                        <a th:href="@{/Pack}">
+                            <i class='bx bx-package icon' style='color:rgba(0,0,0,0.6)' ></i>
                             <span class="text nav-text">Pack</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-heart icon' ></i>
+                        <a th:href="@{/Plan}">
+                            <i class='bx bx-wallet icon' ></i>
                             <span class="text nav-text">Plan</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-wallet icon' ></i>
+                        <a th:href="@{/Worktime}">
+                            <i class='bx bx-time-five icon' style='color:rgba(0,0,0,0.6)' ></i>
                             <span class="text nav-text">Worktime</span>
                         </a>
                     </li>
@@ -94,17 +93,7 @@
                     </a>
                 </li>
 
-                <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
-
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li>
+             
                 
             </div>
         </div>

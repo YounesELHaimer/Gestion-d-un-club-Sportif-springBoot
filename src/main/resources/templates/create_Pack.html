@@ -100,67 +100,79 @@
 
     </nav>
 
-
-  <section class="home">
-        <div class ="container">
-        <br>
+    <section class="home">
+    <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    
+        <div class = "container">
 		<div class = "row">
-		
-			<h1 >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp List Personnels </h1>
-			
-		 
-		</div>
-		<br>
-		<div class = "row">
-			<div class = "col-lg-3">
-				<a th:href = "@{/Personnel/new}" class = "btn btn-primary btn-sm mb-3"> Add Personnel</a>
+			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+			<br>
+				<h1 class = "text-center"> Ajout Pack </h1>
+				<div class = "card-body">
+					<form th:action="@{/Pack/add}" th:object = "${Pack}" method="POST">
+						<div class ="form-group">
+							<label> Pack Duree </label>
+							<input
+							type = "text"
+							name = "duree"
+							th:field = "*{duree}"
+							class = "form-control"
+							placeholder="Enter Pack duree" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Pack Name </label>
+							<input
+							type = "text"
+							name = "Name"
+							th:field = "*{name}"
+							class = "form-control"
+							placeholder="Enter Pack name" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Pack Price </label>
+							<input
+							type = "text"
+							name = "price"
+							th:field = "*{price}"
+							class = "form-control"
+							placeholder="Enter Pack price " 
+							/>
+						</div>
+						
+						
+						
+							<div class ="form-group">
+							<label> Personnel Plan </label>
+							<br>
+						<select th:field="*{plan}">
+						    <option th:each ="lst:${plans}" th:value="${lst.idPlan}" th:text="${lst.name}"></option>
+						    
+						</select>
+						</div>
+						
+						<br> 
+						
+						<div class = "box-footer">
+							<button type="submit" class = "btn btn-primary">
+								Submit
+							</button>
+						</div>
+					</form>
+				
+				</div>
 			</div>
 		</div>
-		<table class = "table table-striped table-bordered">
-			<thead class = "table-dark">
-				<tr>
-					<th> Personnel First Name</th>
-					<th> Personnel Last Name</th>
-					<th> Personnel Date de Naissance</th>
-					<th> Personnel Adresse</th>
-					<th> Personnel Numero tel</th>
-					<th> Personnel Email </th>
-					<th> Personnel Salary</th>
-					<th> Personnel Job</th>
-					
-					<th> Actions </th>
-				</tr>
-			</thead>
-			
-			<tbody>
-			  <tr th:each ="lst:${badr}">
-				<TD th:text="${lst.firstName}"> </TD>
-				<TD th:text= "${lst.LastName}" > </TD>
-				<TD th:text= "${lst.date}" > </TD>
-				<TD th:text= "${lst.adresse}" > </TD>
-				<TD th:text= "${lst.phone}" > </TD>
-				<TD th:text="${lst.email}"> </TD>
-				<TD th:text="${lst.salary}"> </TD>
-				<TD th:text="${lst.job.title}"> </TD>
-				<td>
-						<a th:href = "@{/Personnel/edit/{id}(id=${lst.idPersonnel})}"
-						 class = "btn btn-primary">Update</a>
-						<br>
-						<br>
-						<a th:href = "@{/Personnel/{id}(id=${lst.idPersonnel})}"
-						 class = "btn btn-danger">Delete</a>
-						 
-				</td>
-				
-			</TR>
-			
-			</tbody>
-		
-		</table>
-		
 	</div>
     </section>
-<script>
+
+    <script>
         const body = document.querySelector('body'),
       sidebar = body.querySelector('nav'),
       toggle = body.querySelector(".toggle"),
@@ -188,7 +200,6 @@ modeSwitch.addEventListener("click" , () =>{
     }
 });
     </script>
-
 
 	
 </body>
