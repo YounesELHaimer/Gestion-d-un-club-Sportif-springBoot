@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Admin Management System</title>
+<title>Student Management System</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -10,7 +10,6 @@
 	
 <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 <body>
@@ -42,42 +41,42 @@
                 <ul class="menu-links">
                     <li class="nav-link">
                         <a th:href="@{/Personnel}">
-                            <i class='bx bx-hard-hat icon' style='color:rgba(0,0,0,0.6)'  ></i>
+                            <i class='bx bx-home-alt icon' ></i>
                             <span class="text nav-text">Personnel</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a th:href="@{/Client}">
-                          <i class='bx bx-male icon' ></i>
+                            <i class='bx bx-bar-chart-alt-2 icon' ></i>
                             <span class="text nav-text">Client</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="#">
-                           <i class='bx bx-briefcase icon'></i>
+                            <i class='bx bx-bell icon'></i>
                             <span class="text nav-text">Job</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="#">
-                            <i class='bx bx-package icon' style='color:rgba(0,0,0,0.6)' ></i>
+                            <i class='bx bx-pie-chart-alt icon' ></i>
                             <span class="text nav-text">Pack</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="#">
-                            <i class='bx bx-wallet icon' ></i>
+                            <i class='bx bx-heart icon' ></i>
                             <span class="text nav-text">Plan</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="#">
-                            <i class='bx bx-time-five icon' style='color:rgba(0,0,0,0.6)' ></i>
+                            <i class='bx bx-wallet icon' ></i>
                             <span class="text nav-text">Worktime</span>
                         </a>
                     </li>
@@ -93,7 +92,17 @@
                     </a>
                 </li>
 
-             
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
                 
             </div>
         </div>
@@ -105,48 +114,54 @@
         <br>
 		<div class = "row">
 		
-			<h1 >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp List Personnels </h1>
+			<h1 >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp List Clients </h1>
 			
 		 
 		</div>
 		<br>
 		<div class = "row">
 			<div class = "col-lg-3">
-				<a th:href = "@{/Personnel/new}" class = "btn btn-primary btn-sm mb-3"> Add Personnel</a>
+				<a th:href = "@{/Client/new}" class = "btn btn-primary btn-sm mb-3"> Add Client</a>
 			</div>
 		</div>
 		<table class = "table table-striped table-bordered">
 			<thead class = "table-dark">
 				<tr>
-					<th> Personnel First Name</th>
-					<th> Personnel Last Name</th>
-					<th> Personnel Date de Naissance</th>
-					<th> Personnel Adresse</th>
-					<th> Personnel Numero tel</th>
-					<th> Personnel Email </th>
-					<th> Personnel Salary</th>
-					<th> Personnel Job</th>
-					
+					<th> Client First Name</th>
+					<th> Client Last Name</th>
+					<th> Client Username</th>
+					<th> Client Date de Naissance</th>
+					<th> Client Adresse</th>
+					<th> Client Numero tel</th>
+					<th> Client Email </th>
+					<th> Client Date payement</th>
+					<th> Client HasPaid</th>
+					<th> Client Pack</th>
+					<th> Client WorkTime</th>
 					<th> Actions </th>
 				</tr>
 			</thead>
 			
 			<tbody>
-			  <tr th:each ="lst:${badr}">
+			 <tr th:each ="lst:${badre}">
 				<TD th:text="${lst.firstName}"> </TD>
 				<TD th:text= "${lst.LastName}" > </TD>
-				<TD th:text= "${lst.date}" > </TD>
+				<TD th:text= "${lst.username}" > </TD>
+				 <TD th:text= "${lst.date}" > </TD>
 				<TD th:text= "${lst.adresse}" > </TD>
 				<TD th:text= "${lst.phone}" > </TD>
 				<TD th:text="${lst.email}"> </TD>
-				<TD th:text="${lst.salary}"> </TD>
-				<TD th:text="${lst.job.title}"> </TD>
+				<TD th:text="${lst.datePayment}"> </TD>
+				<TD th:text="${lst.hasPaid}"> </TD>
+				<TD th:text="${lst.pack.name}"> </TD>
+				<TD th:text="${lst.workTime.dayOne}+' \ '+${lst.workTime.dayTwo}+' \ '+${lst.workTime.dayThree}"> </TD> 
+			
 				<td>
-						<a th:href = "@{/Personnel/edit/{id}(id=${lst.idPersonnel})}"
+						<a th:href = "@{/Client/edit/{id}(id=${lst.idClient})}"
 						 class = "btn btn-primary">Update</a>
 						<br>
 						<br>
-						<a th:href = "@{/Personnel/{id}(id=${lst.idPersonnel})}"
+						<a th:href = "@{/Client/{id}(id=${lst.idClient})}"
 						 class = "btn btn-danger">Delete</a>
 						 
 				</td>

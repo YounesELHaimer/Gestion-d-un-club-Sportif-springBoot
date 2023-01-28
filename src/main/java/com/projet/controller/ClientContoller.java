@@ -18,6 +18,7 @@ import com.projet.entities.Personnel;
 import com.projet.repo.ClientRepository;
 import com.projet.repo.PlanRepository;
 import com.projet.repo.packRepository;
+import com.projet.repo.worktimeRepository;
 import com.projet.repo.PersonnelRepository;
 import com.projet.repo.adminRepository;
 import com.projet.service.ClientSiteService;
@@ -37,10 +38,17 @@ public class ClientContoller {
 	@Autowired
 	private PlanRepository plandao;
 	
+	@Autowired
+	private packRepository packdao;
+
+	@Autowired
+	private worktimeRepository wR;
 
 	@RequestMapping("/index")
 	public String index(Model m)
 	{
+		m.addAttribute("packs",packdao.findAll());
+		m.addAttribute("worktimes",wR.findAll());
 		Long numClient = dao.count();
 		Long numCoach = persodao.count();
 		Client c = new Client();
