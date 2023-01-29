@@ -27,6 +27,7 @@ import com.projet.repo.adminRepository;
 import com.projet.repo.jobRepository;
 import com.projet.repo.packRepository;
 import com.projet.repo.worktimeRepository;
+import com.projet.service.AdminService;
 import com.projet.service.ClientService;
 import com.projet.service.JobService;
 import com.projet.service.PackService;
@@ -501,5 +502,74 @@ public class Controller {
 				    ws.deleteWorktimeById(id);
 				    return "redirect:/Worktime";
 				}
+
+
+		//####################################### partie Admin #######################################
+				
+				@Autowired
+				private AdminService as;
+				@Autowired
+				private PersonnelRepository peR;
+				
+				@GetMapping("/Admin")
+				public String listAdmin(Model m ) {
+					
+					m.addAttribute("badr",as.getAllPers());
+					return "Admin";
+				}
+				
+				@GetMapping("/Admin/new")
+				
+				public String createAdminForm(Model m ) {
+					m.addAttribute("jobs",peR.findAll());
+				
+					Admin e = new Admin();
+					m.addAttribute("Admin",e);
+					return "create_Admin";
+					
+					
+				} 
+				
+			 	
+				
+				@PostMapping("/Admin/add")
+				public String saveAdmin(@ModelAttribute("Admin") Admin Admin ) {
+					
+					
+					as.savePers(Admin);
+					return "redirect:/Admin";
+				}
+				@GetMapping("/Admin/edit/{id}")
+				
+				public String updateAdminForm(@PathVariable Long id,Model m) {
+					m.addAttribute("jobs",peR.findAll());
+					Admin e =  as.getAdminById(id);
+					m.addAttribute("Admin",e);
+					return "edit_Admin";
+					
+					 
+				} 
+				@PostMapping("/Admin/{id}")
+				public String updateAdmin(@PathVariable Long id,@ModelAttribute("Admin") Admin Admin) {
+					// get student from db by id
+					
+					Admin s  = as.getAdminById(id);
+					s.setIdAdmin(id);
+					s.setUsername(Admin.getUsername());
+					s.setPassword(Admin.getPassword());
+					s.setPersonnel(Admin.getPersonnel());
+					
+					
+			 		// save updated student object
+					as.updateAdmin(s); 
+					return "redirect:/Admin";
+					 
+				}
+				
+				@GetMapping("/Admin/{id}")
+				public String deleteAdmin(@PathVariable Long id) {
+					as.deleteAdminById(id);
+					return "redirect:/Admin";
+			}
 
 }
